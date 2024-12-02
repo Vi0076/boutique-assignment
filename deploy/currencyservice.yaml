@@ -18,10 +18,10 @@ spec:
         image: gcr.io/google-samples/microservices-demo/currencyservice:v0.3.1
         ports:
         - name: grpc
-          containerPort: 7000
+          containerPort: 8000
         env:
         - name: PORT
-          value: "7000"
+          value: "8000"
         # - name: DISABLE_TRACING
         #   value: "1"
         # - name: DISABLE_PROFILER
@@ -30,10 +30,10 @@ spec:
         #   value: "1"
         readinessProbe:
           exec:
-            command: ["/bin/grpc_health_probe", "-addr=:7000"]
+            command: ["/bin/grpc_health_probe", "-addr=:8000"]
         livenessProbe:
           exec:
-            command: ["/bin/grpc_health_probe", "-addr=:7000"]
+            command: ["/bin/grpc_health_probe", "-addr=:8000"]
         resources:
           requests:
             cpu: 100m
@@ -52,5 +52,5 @@ spec:
     app: currencyservice
   ports:
   - name: grpc
-    port: 7000
-    targetPort: 7000
+    port: 8000
+    targetPort: 8000
